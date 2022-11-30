@@ -9,7 +9,7 @@ export class Model{
         {description:"breakfast",action:false},
         {description:"lesson",action:false},
         {description:"sport",action:true},
-        {description:"read",action:true}
+        {description:"reading",action:true}
        ]
     }
 }

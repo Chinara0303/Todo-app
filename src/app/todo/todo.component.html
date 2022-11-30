@@ -1,51 +1,53 @@
-<div class=" container ">
-    <div class="row">
-        <div class="col-5 mx-auto">
-            <h1 class="title mt-3 text-center list">{{getName()}}'s list</h1>
-            <div class="input-group mb-3">
-                <input type="text" 
-                class="form-control" #inpItem 
-                (keyup.enter)="AddItem(inpItem.value); inpItem.value=''" 
-                >
-                <button class="bg-primary" (click)="AddItem(inpItem.value); inpItem.value=''">Add</button>
-            </div>
-            <div class="form-check">
-                <input type="checkbox" [(ngModel)]="displayAll" id="inp" class="form-check-input">
-                <label for="inp" >
-                    Show unfinished tasks</label>
-            </div>
-            <div class="mb-2">{{ displayCount() }} tasks are completed </div>
-            <ng-template  #itemsTable>
-                <table class="table-bordered table" >
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Description</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let item of Getitems() let i = index" [class] = "{'bg-primary':item.action,'bg-warning':!item.action}">
-                            <td>{{i+1}}</td>
-                            <td>{{item.description}}</td>
-                            <td  *ngIf="item.action">
-                                Yes
-                            </td>
-                            <td  *ngIf="!item.action">
-                                No
-                            </td>
-                            <td>
-                                <input type="checkbox" [(ngModel)]="item.action">
-                            </td>
-                        </tr>
-                    </tbody>
-
-                </table>
-            </ng-template>
-
-            <div class="alert alert-warning" *ngIf="Getitems().length == 0 else itemsTable" >ALL MISSIONS COMPLETED</div>
-            </div>
-
+<div class="todoapp">
+    <div class=" container ">
+        <div class="row">
+            <div class="col-5 mx-auto">
+                <h1 class="title text-center list">{{getName()}}'s list</h1>
+                <div class="input-group mb-3">
+                    <input type="text" 
+                    class="form-control" #inpItem 
+                    (keyup.enter)="AddItem(inpItem.value); inpItem.value=''" 
+                    >
+                    <button class="bg-primary" (click)="AddItem(inpItem.value); inpItem.value=''">Add</button>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" [(ngModel)]="displayAll" id="inp" class="form-check-input">
+                    <label for="inp" >
+                        Show unfinished tasks</label>
+                </div>
+                <div class="mb-2">{{ displayCount() }} tasks are completed </div>
+                <ng-template  #itemsTable>
+                    <table class="table-bordered table" >
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Description</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of Getitems() let i = index" [class] = "{'bg-primary':item.action,'bg-warning':!item.action}">
+                                <td>{{i+1}}</td>
+                                <td>{{item.description}}</td>
+                                <td  *ngIf="item.action">
+                                    Yes
+                                </td>
+                                <td  *ngIf="!item.action">
+                                    No
+                                </td>
+                                <td>
+                                    <input type="checkbox" [(ngModel)]="item.action">
+                                </td>
+                            </tr>
+                        </tbody>
+    
+                    </table>
+                </ng-template>
+    
+                <div class="alert alert-warning" *ngIf="Getitems().length == 0 else itemsTable" >ALL MISSIONS COMPLETED</div>
+                </div>
+    
+        </div>
+       
     </div>
-   
 </div>

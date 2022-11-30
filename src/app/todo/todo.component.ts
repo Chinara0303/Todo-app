@@ -11,7 +11,7 @@ import { Model } from '../Model';
 
 export class TodoComponent implements OnInit {
   
- displayAll: boolean = false;
+ displayAll: boolean = true;
  model = new  Model();
  constructor() 
  {
@@ -30,7 +30,7 @@ export class TodoComponent implements OnInit {
     localStorage.setItem("items",JSON.stringify(items))
   }
   else{
-    alert("Please,enter a task");
+    alert("Please, enter a task");
   }
  }
 

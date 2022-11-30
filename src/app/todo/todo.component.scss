@@ -1,15 +1,24 @@
-.list{
-    .title{
-        color: white;
+.todoapp{
+    background-color: #FBFBFF;
+    padding: 60px;
+    margin: 60px;
+    border-radius: 10px;
+.container{
+    h1{
+        color: #15023a;
+        margin-bottom: 50px;
     }
-    .form-control{
-        outline: none;
+    button{
+        border: transparent;
+    }
+
+    .list{
+        .title{
+            color: white;
+        }
+        .form-control{
+            outline: none;
+        }
     }
 }
-h1{
-    background-color: rgb(133, 236, 240);
-   
-}
-button{
-    border: transparent;
 }
